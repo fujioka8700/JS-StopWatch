@@ -1,13 +1,13 @@
 @font-face{
     font-family: digital-7;
-    src: url(fonts/digital-7.ttf);
+    src: url(../fonts/digital-7.ttf);
 }
 
 body {
     color: #DAD6D6;
     font-family: digital-7;
     text-align: center;  
-    background-color: #171A21;
+    background-color: #CCFFCC;
     background-image: url(../images/clock.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -69,4 +69,15 @@ h2
   font-size: 46px;
   letter-spacing: 2px;
   margin: 200px 0 0 ;
+}
+
+h1 {
+  text-align: left;
+  margin: auto;
+  width: 130px;
+}
+
+.buttonInvalid {
+  background-color: #000000;
+  opacity: 0.3;
 }
