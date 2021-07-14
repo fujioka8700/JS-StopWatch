@@ -6,6 +6,7 @@ var min = 0;
 var sec = 0;
 var miliSec = 0;
 var timer;
+var flgReset = false;
 
 function dispTimer(min, sec, miliSec) {
     var retSec = ('00' + sec).slice(-2);
@@ -13,7 +14,6 @@ function dispTimer(min, sec, miliSec) {
     var retMiliSec = ('00' + miliSec).slice(-2);
 
     document.getElementById("timer").innerHTML = retMin + ":" + retSec + ":" + retMiliSec;
-    // document.getElementById("timer").innerHTML = min + ":" + sec + ":" + miliSec;
 }
 
 function callTimer() {
@@ -45,6 +45,7 @@ function start() {
     stopButton.classList.remove('buttonInvalid');
     resetButton.classList.add('buttonInvalid');
     timer = setInterval(callTimer, 10);
+    flgReset = false;
 }
 
 function stop() {
@@ -55,17 +56,21 @@ function stop() {
         resetButton.classList.remove('buttonInvalid');
     }
     clearInterval(timer);
+    flgReset = true;
 }
 
 function reset() {
-    stop();
-    min = 0;
-    sec = 0;
-    miliSec = 0;
+    if (flgReset) {
+        min = 0;
+        sec = 0;
+        miliSec = 0;
 
-    dispTimer(min, sec, miliSec);
+        dispTimer(min, sec, miliSec);
 
-    buttonColorInit();
+        buttonColorInit();
+
+        flgReset = false;
+    }
 }
 
 buttonColorInit();
